@@ -13,14 +13,14 @@ In ths Blog, we will learn,
 
 ## Quick note
 
-### Virtual Environment and Installing Django
-	In real world, different user have different version of package install in their machine. Python and Django are installed globally on our PC so, it will be pain to install and again reinstall everytime. In this case, Virtaul Environment is our ally. This will help us to create a environment where we can run our project.
+### Virtual Environment and Installing Django	
+In real world, different user have different version of package install in their machine. Python and Django are installed globally on our PC so, it will be pain to install and again reinstall everytime. In this case, Virtaul Environment is our ally. This will help us to create a environment where we can run our project.
 
 ```python
 python -m venv <.virtual_environment_name> 
 ```
 
-for a while let us keep virtual environmnet name as  .venv, then to activate vitual Environment we need to follow quite different approach for both Unix(Mac) and windows
+let us keep virtual environmnet name as  ***.venv***, then to activate vitual Environment we need to follow quite different approach for both Unix(Mac) and windows
 
 For Windows 
 ```python
@@ -39,27 +39,30 @@ Starting project
 ```python
 django-admin startproject django_project . 
 ```
-don't forgot to put period(.) at the end of code because this will help us in file structure management of django. 
+don't forgot to put period(.) at the end of code because this will help us in easy file management of Django. 
 
 #### Creating an app
-Django is famous for it's management of mulitple accounts, for now we will only deals with one app i.e accounts. To add new app, 
-` python manage.py startapp accounts `
+Django is famous for it's management of multiple apps, for now we will deal with one app i.e accounts. To add new app, 
+```python
+python manage.py startapp accounts 
+```
 
-after that we need to register it.For that go to `django_project/settings.py` there you can see *Installed app* around line 33, there you need to register our app.Now, for CustomUser we also need to mention our model ie ***CustomUser***
+after that we need to register it.For that go to `django_project/settings.py` in this file, you can see *Installed app* around line 33, there you need to register our app.Now, for CustomUser we also need to mention our model ie ***CustomUser***
 
 ```python
 INSTALLED_APPS = [
     .......,
     'accounts.apps.AccountsConfig',
     ]
-
+    .....
+    .....
 AUTH_USER_MODEL = 'accounts.CustomUser'
 ```
 
 # Basic Authenticate App
-Now, tight your seat belts out journey is about to start. One of the easiest and clear way to implement **Simple authenticate** in django is by using default View like **LogInView**. Without any delay let's start to write code and I am going to give you detail about that particular step.
+Now, tight your seat belts our journey is about to start. One of the easiest and clear way to implement **Custom authenticate** in django is by using default forms like **UserCreationForm and UserChangeForm**. Without any delay let's start to write code.
 
-At first, let us set our directory to **templates** and manage our **Redirect_URl**, go to `django_project/settings` and there 
+At first, let us set our path to **templates** and manage our **Redirect_URl**, go to `django_project/settings` and here 
 ```python
 TEMPLATES = [
     {
@@ -69,7 +72,7 @@ TEMPLATES = [
     }
 ]
 ```
-Here, we are providing path for our templates which we will use lateron in our program. Now to redirect us to **home** after login and logout, we need to tell django where to send user. Remaining in same file i.e `django_project/setting` at EOF, write 
+Here, we are providing path for our templates which we will use later on in our program. Now to redirect us to **home** after login and logout, we need to tell django where to send user. Staying in same file i.e `django_project/setting` at EOF, write 
 
 ```python
 LOGIN_REDIRECT_URL = "home" 
@@ -85,7 +88,7 @@ For templates, we will go in order
 5. templates/registration/singup.html
 
 
-for now, make one directory called `templates` and in their we will write our all code for templates.
+for now, make one directory called `templates` where we will setup our code for templates.
 
 #### Templates/base.html
 ---
@@ -118,8 +121,7 @@ for now, make one directory called `templates` and in their we will write our al
 {% endif %}
 {% endblock content %}
 ```
-Here, we encounter different new words. First of all, at the top of line **extends** help us to extend wrapper of **base.html** to other templates. 
-and we used **if** , to distinguish whether the user is authenticated or not, with this we will provide user login, logout features. Now, moving towards next templates, we will write out code for signup, login and logout.
+Here, we encounter different new words. First of all, at the top of line **extends** help us to extend wrapper of **base.html** to other templates and we used **if** to distinguish whether the user is authenticated or not, with this we will provide user login, logout features. Now, moving towards next templates, we will write out code for signup, login and logout.
 
 make one directory with name **registration**
 ` mkdir templates/registration `
@@ -137,7 +139,7 @@ make one directory with name **registration**
 </form>
 {% endblock content %}
 ```
-This is basic login templates. Here, we used form tag and **csrf_token** is quite important to make our login more secure and prevent from exploitation of our website. and we used **as_p** to represent our form, but there are many other way too like, **as_ul**, **as_table**.Now, Logout and SignUp also follows same format.
+This is basic login templates. Here, we used form tag and also, you may have noticed **csrf_token** which is quite important to make our login more secure and prevent from exploitation of our website.We used **as_p** to represent our form, but there are many other way too like, **as_ul**, **as_table**.Now, Logout and SignUp also follows same format.
 
 #### templates/registration/logout.html
 ---
@@ -167,7 +169,7 @@ This is basic login templates. Here, we used form tag and **csrf_token** is quit
 {% endblock content %}
 ```
 
-### Managing URl 
+### Managing URL
 For login and logout, we can use default built-in **auth app** but, for SignUp we will use use our own Url and View. To route our URL, we need to go to 
 #### django_project/urls.py
 ``` python
@@ -196,7 +198,6 @@ urlpatterns = [
 At the top, we imported path which act as power-house of our urlpatterns and after that, we imported view which is yet to be written. Here we are approaching ***URL-->Views*** approach and also, we are using class views so ***as_view()*** is used.
 
 ---
-From now, We will have abit different code then previous one.
 
 ### Models
 In django, Models plays vital role in database.We need to be abit cautious. Here for we are adding custom field ie. ***age***
@@ -233,7 +234,7 @@ class CustomUserChangeForm(UserChangeForm):
         model = CustomUser
         fields = UserChangeForm.Meta.fields
 ```
-Here first of all we imported, ***UserCreationForm*** and ***UserChangeForm***, and then model which we madebefore. After that we declare two separate class for each form i.e Change and Create. Here, we can notice ***class Meta*** it helps to declare characteristics of class. 
+Here first of all we imported, ***UserCreationForm*** and ***UserChangeForm***, and then model which we made before. After that, we declare two separate class for each form i.e Change and Create. Here, we can notice ***class Meta*** it helps to declare characteristics of class. 
 
 ### Admin
 It is one of the important pretty messy, but don't worry we will go through it :)
