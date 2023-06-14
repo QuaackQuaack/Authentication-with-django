@@ -1,6 +1,7 @@
 [![simple](https://img.shields.io/badge/build-Simple%20Authentication-blue)](README.md)
 [![custom](https://img.shields.io/badge/build-Custom%20Authentication-blue)](README_custom.md)
 
+Above button are used to switch between blog of simple and Customable authentication.
 # Beginner authentication to advance customizing authentication in Django
 
 ## In this blog
@@ -209,7 +210,24 @@ class SignUpView(CreateView):
 
 let me explain what we have done here, at first we imported ***UserCreationForm*** and then ***reverse_lazy*** which help us to load our url later on when they are available or needed.We have directed our user to login page upon successful registration.
 
+### Migrations 
+We shouldn't forgot about migration it is quite important to maintain our database.
+```python 
+python manage.py makemigrations 
+python manage.py migrate
+```
 
 So, in this way we can set a simple authentication page with easily understandable and less code in django. 
+Now, enter 
+```python 
+python manange.py runserver
+``` 
+in terminal and go to 
+```HTML
+localhost:8000
+```
+To see our result. 
+
+Meow~~
 
  
