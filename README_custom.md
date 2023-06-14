@@ -1,6 +1,7 @@
 [![simple](https://img.shields.io/badge/build-Simple%20Authentication-blue)](README.md)
 [![custom](https://img.shields.io/badge/build-Custom%20Authentication-blue)](README_custom.md)
 
+above mentioned button can be used to switch between Simple and Custom authentication.
 # Beginner authentication to advance customizing authentication in Django
 
 ## In this blog
