@@ -5,23 +5,19 @@ Above button can be used to switch between blog of simple and Customable authent
 # Beginner authentication to advance customizing authentication in Django
 
 ## In this blog
- here, I will talk about setting up a simple page for authentication and also, account management with customizing authentication the help of django
 
-In ths Blog, we will learn,
-1. Simple authenticate page
-2. Advanced Authenticate page with custom fields for Users
-
+Here I had written short description about setting up simple Authentication system that includes LogIn, LogOut and SignUp with stepsby step code.If you want to see only code then click [here](https://github.com/QuaackQuaack/Authentication-with-django/tree/main/simple-authentication)
 
 ## Quick note
 
 ### Virtual Environment and Installing Django
-In real world, different user have different version of package install in their machine. Python and Django are installed globally on our PC so, it will be pain to install and again reinstall everytime. In this case, Virtuall Environment is our ally. This will help us to create a environment where we can run our project.
+In real world, different user have different version of package install in their machine. Python and Django are installed globally on our PC so, it will be pain to install and again reinstall everytime. In this case, Virtual Environment is our ally. This will help us to create a environment where we can avoid installing package globally.
 
 ```python
 python -m venv <.virtual_environment_name> 
 ```
 
-Let us keep virtual environmnet name as  ***.venv***, then to activate vitual Environment we need to follow quite different approach for both Unix(Mac) and windows
+Let us keep virtual environment name as  ***.venv***, then to activate virtual Environment we need to follow quite different approach for both Unix(Mac) and windows
 
 For Windows 
 ```python
@@ -58,10 +54,10 @@ INSTALLED_APPS = [
 
 
 # Basic Authenticate App
-Now, tight your seat belts our journey is about to start. One of the easiest and clear way to implement **Simple authenticate** in django is by using default View like **LogInView**. Without any delay let's start to write code.
+Now, tight your seat belts our journey is about to start. One of the easiest and clear way to implement **Simple authentication** in django is by using default View like **LogInView**. Without any delay let's start to write code.
 
 At first, let us set our path to **templates** and manage our **Redirect_URl**, go to `django_project/settings` and here 
-``` 
+```python
 TEMPLATES = [
     {
         ...

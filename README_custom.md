@@ -2,26 +2,20 @@
 [![custom](https://img.shields.io/badge/build-Custom%20Authentication-blue)](README_custom.md)
 
 above mentioned button can be used to switch between Simple and Custom authentication.
-# Beginner authentication to advance customizing authentication in Django
+# Simple authentication and adding your own custom fields in SignUp page
 
-## In this blog
- here, I will talk about setting up a simple page for authentication and also, account management with customizing authentication the help of django
-
-In ths Blog, we will learn,
-1. Simple authenticate page
-2. Advanced Authenticate page with custom fields for Users
-
+Here, I had written short description about custom fields with steps by steps code.If you only want to see then click [here](https://github.com/QuaackQuaack/Authentication-with-django/tree/main/custom-authentication)
 
 ## Quick note
 
 ### Virtual Environment and Installing Django	
-In real world, different user have different version of package install in their machine. Python and Django are installed globally on our PC so, it will be pain to install and again reinstall everytime. In this case, Virtaul Environment is our ally. This will help us to create a environment where we can run our project.
+In real world, different user have different version of package install in their machine. Python and Django are installed globally in our PC so, it will be pain to install and again reinstall everytime. In this case, Virtual Environment is our ally. It will help us to create a environment where we can avoid installing package globally.
 
 ```python
 python -m venv <.virtual_environment_name> 
 ```
 
-let us keep virtual environmnet name as  ***.venv***, then to activate vitual Environment we need to follow quite different approach for both Unix(Mac) and windows
+let us keep virtual environment name as  ***.venv***, then to activate virtual Environment we need to follow quite different approach for both Unix(Mac) and windows
 
 For Windows 
 ```python
@@ -61,7 +55,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 ```
 
 # Basic Authenticate App
-Now, tight your seat belts our journey is about to start. One of the easiest and clear way to implement **Custom authenticate** in django is by using default forms like **UserCreationForm and UserChangeForm**. Without any delay let's start to write code.
+Now, tight your seat belts our journey is about to start. One of the easiest and clear way to implement **Custom authentication** in django is by using default forms like **UserCreationForm and UserChangeForm**. Without any delay let's start to write code.
 
 At first, let us set our path to **templates** and manage our **Redirect_URl**, go to `django_project/settings` and here 
 ```python
